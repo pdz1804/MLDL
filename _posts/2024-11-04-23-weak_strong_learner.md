@@ -1,3 +1,14 @@
+---
+layout: post
+title: 23. Weak and Strong Learners
+mathjax: true
+tags:
+- Advanced Machine Learning
+- Ensemble Methods
+categories: Advanced_Machine_Learning
+description: Details information about the Weak and Strong Learners
+---
+
 ## Weak and Strong Learners
 
 In machine learning, models are often classified as *weak learners* or
@@ -51,8 +62,7 @@ many cases.
 
 ### Weak vs. Strong Learners in Ensemble Learning
 
-![Weak and Strong Learners](img/weak-learner.PNG){#fig:weak-learner
-width="0.9\\linewidth"}
+![Weak and Strong Learners](/MLDL/assets/img/img/weak-learner.PNG)
 
 -   **Weak learners** are beneficial in Boosting techniques, where their
     individual limitations are compensated by focusing on different
@@ -62,10 +72,8 @@ width="0.9\\linewidth"}
     where the aggregation of multiple strong learners results in a
     highly accurate and stable model.
 
-::: cmt
 The choice between weak and strong learners depends on the ensemble
 method and the problem complexity. Weak learners excel in adaptive
 methods like Boosting, while strong learners provide stable,
 high-accuracy ensembles when combined in parallel structures like
 bagging.
-:::

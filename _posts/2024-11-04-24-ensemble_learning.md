@@ -1,3 +1,14 @@
+---
+layout: post
+title: 24. Ensemble Learning
+mathjax: true
+tags:
+- Advanced Machine Learning
+- Ensemble Methods
+categories: Advanced_Machine_Learning
+description: Details information about the Ensemble Learning
+---
+
 ## Ensemble Learning
 
 ### History of Ensemble Learning
@@ -26,7 +37,6 @@ excellent hypotheses, locating one can be challenging. **Ensemble
 learning** addresses this by combining multiple hypotheses, potentially
 improving predictive performance.
 
-::: cmt
 **Ensemble learning** involves training multiple machine learning
 algorithms to work together on a classification or regression task.
 These individual algorithms, known as \"base models,\" \"base
@@ -36,7 +46,6 @@ on the same task, each with limited predictive accuracy (high bias) but
 varying prediction patterns (high variance). By combining weak learners
 --- models that alone are not highly accurate --- ensemble learning
 creates a single model with greater accuracy and lower variance.
-:::
 
 Ensemble learning typically employs three main strategies: *bagging,
 boosting, and stacking*.
@@ -85,7 +94,6 @@ semantic patterns. Here's an example with ensemble strategies:
 
 #### Bagging
 
-${}$\
 **Description**: Bagging (Bootstrap Aggregating) creates multiple
 versions of the same model by training on different random samples from
 the training data, reducing variance and avoiding overfitting. Each
@@ -104,7 +112,6 @@ styles.
 
 #### Boosting
 
-${}$\
 **Description**: Boosting is a sequential ensemble method where each
 model is trained on the errors of the previous one, thus focusing more
 on difficult cases. Boosting combines weak learners to create a strong
@@ -122,7 +129,6 @@ the model's accuracy.
 
 #### Stacking
 
-${}$\
 **Description**: Stacking, or stacked generalization, involves training
 multiple base models and using a meta-model to learn from their combined
 predictions. The meta-model synthesizes the outputs of the base models
@@ -140,7 +146,6 @@ features for better classification.
 
 #### Voting
 
-${}$\
 **Description**: Voting combines the predictions of multiple models,
 with the final prediction based on the majority vote (for
 classification) or average (for regression). This method helps reduce
@@ -157,14 +162,15 @@ reliability of the detection model.
 
 #### Bayes Optimal Classifier
 
-${}$\
-**Description**:\
+**Description**:
+
 The Bayes optimal classifier is a classification technique that
 represents the theoretical best possible model by combining all
 hypotheses in the hypothesis space, weighted by their posterior
 probability. On average, no other ensemble can outperform it. The Naive
 Bayes classifier is a feasible version that assumes conditional
-independence of the data given the class, simplifying computation.\
+independence of the data given the class, simplifying computation.
+
 In the Bayes optimal classifier, each hypothesis is given a vote
 proportional to the likelihood that the training dataset would have been
 generated if that hypothesis were true. This vote is also weighted by
@@ -172,7 +178,9 @@ the prior probability of the hypothesis.
 
 The Bayes optimal classifier can be expressed with the following
 equation:
+
 $$y = \arg \max_{c_j \in C} \sum_{h_i \in H} P(c_j | h_i) P(T | h_i) P(h_i)$$
+
 where $y$ is the predicted class, $C$ is the set of all possible
 classes, $H$ is the hypothesis space, $P$ represents a probability, and
 $T$ is the training data. As an ensemble, the Bayes optimal classifier
@@ -182,8 +190,11 @@ in $H$.
 
 This formula can also be derived using Bayes' theorem, which states that
 the posterior is proportional to the likelihood times the prior:
-$$P(h_i | T) \propto P(T | h_i) P(h_i)$$ Thus, the classifier can also
-be expressed as:
+
+$$P(h_i | T) \propto P(T | h_i) P(h_i)$$ 
+
+Thus, the classifier can also be expressed as:
+
 $$y = \arg \max_{c_j \in C} \sum_{h_i \in H} P(c_j | h_i) P(h_i | T)$$
 
 **Use Cases**: This approach is mostly theoretical, serving as a
@@ -196,7 +207,6 @@ problems where computational resources are available.
 
 #### Bayesian Model Averaging
 
-${}$\
 **Description**: Bayesian Model Averaging (BMA) makes predictions by
 averaging over models weighted by their posterior probabilities,
 providing robustness to model uncertainty. This method often yields
@@ -247,7 +257,6 @@ prediction.
 
 #### Bayesian Model Combination
 
-${}$\
 **Description**: Bayesian Model Combination (BMC) is an algorithmic
 improvement over Bayesian Model Averaging (BMA). Instead of sampling
 each model individually, BMC samples from the space of possible
@@ -269,7 +278,6 @@ enhancing interpretability and model confidence.
 
 #### Amended Cross-Entropy Cost
 
-${}$\
 **Description**:
 
 Cross-Entropy is a common cost function used in classification tasks,
