@@ -1,3 +1,14 @@
+---
+layout: post
+title: 19. Likelihood Function and Maximum Likelihood Estimation
+mathjax: true
+tags:
+- Advanced Machine Learning
+- Basic Math and Linear Algebra
+categories: Advanced_Machine_Learning
+description: Details information about the Likelihood Function and Maximum Likelihood Estimation
+---
+
 ## Likelihood Function and Maximum Likelihood Estimation
 
 ### Likelihood Function
@@ -20,6 +31,7 @@ each individual likelihood:
 
 $$L(\beta) = \prod_{i=1}^{N} L_i$$
 
+
 ### Log-Likelihood Function
 
 Directly maximizing the likelihood function (as is done in Maximum
@@ -35,6 +47,7 @@ $$\log L(\beta) = \sum_{i=1}^{N} \left[ y_i \log(P(y_i | X_i)) + (1 - y_i) \log(
 
 This transformation turns the product into a sum, simplifying the
 process of optimization.
+
 
 ### Maximum Likelihood Estimation
 
@@ -56,6 +69,7 @@ data. This approach has strong theoretical foundations because:
 
 -   They are also **efficient** and **asymptotically unbiased**,
     providing accurate estimates with large enough data.
+
 
 ### Optimization in Logistic Regression
 
