@@ -1,3 +1,13 @@
+---
+layout: post
+title: 14. Evaluation Metrics
+mathjax: true
+tags:
+- Basic Machine Learning
+categories: Basic_Machine_Learning
+description: Details information about the Evaluation Metrics
+---
+
 ## Evaluation metrics
 
 ### Confusion Matrix and Fundamental Metrics
@@ -68,6 +78,7 @@ both metrics.
 $$F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \approx 2 \times \frac{0.778 \times 0.875}{0.778 + 0.875} \approx 0.823$$
 
 **F-beta Score**
+
 $$F_{\beta} = (1+\beta^2)\times \dfrac{\text{Precision} \times \text{Recall}}{\beta^2 \times \text{Precision} + \text{Recall}}  \nonumber$$
 
 Evolve from F1 score, F-beta score is also called \"weighted harmonic
@@ -96,7 +107,7 @@ AI), a classification threshold is applied.
     only classifying essays with a probability exceeding 0.8 as
     AI-written.
 
-::: cmt
+
 The choice of classification threshold depends on the specific problem
 and the costs associated with different error types. For example, in
 detecting AI-written essays, a false positive (classifying a
@@ -104,7 +115,6 @@ human-written essay as AI-written) may be less detrimental than a false
 negative (failing to detect an AI-written essay). In such cases, a lower
 threshold might be preferred to ensure higher recall, even if it leads
 to some false positives.
-:::
 
 As you change the threshold, you will usually get new combinations of
 errors of different types (and new confusion matrices).
@@ -165,7 +175,7 @@ specific decision threshold.
 We will plot a ROC curve using scikit-learn's visualization API,
 RocCurveDisplay.
 
-``` {.python language="Python" caption="SVM vs Random Forest with ROC Curve"}
+```python
 import matplotlib.pyplot as plt
 
 from sklearn.datasets import load_wine
@@ -191,9 +201,7 @@ rfc_disp = RocCurveDisplay.from_estimator(rfc, X_test, y_test, ax=ax, alpha=0.8)
 plt.show()
 ```
 
-![ROC Curve of Support Vector Machine vs Random
-Forest](SVC vs. RandomForest ROC AUC.png){#fig:roc_svc_vs_rf
-width="0.7\\linewidth"}
+![ROC Curve of Support Vector Machine vs Random Forest](/MLDL/assets/img/SVC vs. RandomForest ROC AUC.png)
 
 The left side of the curve corresponds to the more \"confident\"
 thresholds: a higher threshold leads to lower recall and fewer false
@@ -216,8 +224,7 @@ axes.
 The perfect scenario would be the model identifying all cases correctly
 and never giving false alarms.
 
-![A Perfect ROC \"Curve\"](perfectROC.png){#fig:perfectroc
-width="0.5\\linewidth"}
+![A Perfect ROC \"Curve\"](/MLDL/assets/img/perfectROC.png)
 
 The worst scenario would be our model giving literally random results,
 leading to the ROC curve begin a diagonal line connecting (0,0) to
@@ -226,10 +233,9 @@ makes the same number of true and false positive predictions for any
 threshold value. As the classification threshold changes, the TPR goes
 up or down in the same proportion as the FPR.
 
-![A totally random ROC \"Curve\"](randomROC.png){#fig:randomroc
-width="0.6\\linewidth"}
+![A totally random ROC \"Curve\"](/MLDL/assets/img/randomROC.png)
 
-``` {.python language="Python" caption="Randomize the input and output to simulate a random classifier"}
+```python
 import numpy as np
 
 # Generate an array of 100 points
@@ -255,9 +261,7 @@ roc_display.plot()
 plt.savefig('ROC AUC random.png')  # Save the ROC curve plot as an image
 ```
 
-![Simulated ROC curve result of a random
-classifier](ROC AUC random.png){#fig:randomsimroc
-width="0.7\\linewidth"}
+![Simulated ROC curve result of a random classifier](/MLDL/assets/img/ROC AUC random.png)
 
 Most real-world models will fall somewhere between the two extremes. The
 better the model can distinguish between positive and negative classes,
@@ -299,11 +303,9 @@ goals of your model.
 
 *When Not to Use ROC AUC*:
 
-::: cmt
 Considering the imbalanced nature of our dataset (too many human-written
 essays compared to AI-written), and that they have equal importance to
 the model, the F1-score is the best choice amongst the given metrics.
-:::
 
 More info about why ROC AUC is insufficient for imbalanced dataset:
 
@@ -311,12 +313,10 @@ More info about why ROC AUC is insufficient for imbalanced dataset:
 
 ### Type I Error vs Type II Error: An Inevitable Tradeoff
 
-::: cmt
 Type I and Type II errors play critical roles in various fields,
 including law and medicine, where the consequences of each error can
 significantly impact lives and society. Let's explore the tradeoffs and
 implications in these domains.
-:::
 
 **Case study 1: Law**
 
@@ -336,12 +336,10 @@ go free, potentially endangering society by allowing harmful individuals
 to re-offend. It can also diminish the perceived deterrent effect of the
 justice system.
 
-::: cmt
 Most legal systems operate under the principle that \"it is better that
 ten guilty persons escape than one innocent suffer.\" This reflects a
 strong preference to avoid Type I errors, prioritizing the protection of
 innocent individuals over convicting the guilty.
-:::
 
 Lie detectors are sometimes used in criminal investigations, and both
 errors can have significant consequences:
@@ -360,10 +358,9 @@ affecting mental health and biasing judicial outcomes.
 individuals to avoid detection, potentially hindering the pursuit of
 justice.
 
-::: cmt
 Often, there is a preference to avoid Type I errors to prevent wrongful
 suspicion of innocent individuals.
-:::
+
 
 **Case study 2: Medicine**
 
@@ -388,11 +385,9 @@ worsening the patient's condition and potentially reducing recovery
 chances. For example, failing to diagnose cancer early can make the
 disease harder to treat or even fatal.
 
-::: cmt
 In cases of life-threatening conditions (e.g., cancer, heart disease),
 doctors often prioritize avoiding Type II errors to ensure early
 detection, tolerating more false positives (Type I errors) as a result.
-:::
 
 **Case study 3: AI in Academic Research** **Preference Against Type I
 Error:** There may be a preference to avoid Type I errors to protect
@@ -409,7 +404,6 @@ academic standards, as well as skewed or unreliable research findings,
 particularly if such content is submitted as original work or influences
 peer-reviewed research.
 
-::: cmt
 **Preference Against Type I Error:** In many academic contexts, there
 may be a preference to avoid Type I errors to protect innocent
 researchers from undue scrutiny or accusations. Labeling a
@@ -417,35 +411,19 @@ human-authored work as AI-generated can lead to distrust in the
 detection system and harm honest researchers' reputations. However,
 excessive Type II errors could undermine research integrity if
 AI-generated work is mistaken for human-authored content.
-:::
 
 ### Impossibility Results for Reliable Detection of AI-Generated Text
 
-::: cmt
-In [probability
-theory](https://en.wikipedia.org/wiki/Probability_theory), the **total
-variation distance** is a distance measure for probability
-distributions. It is an example of a [statistical
-distance](https://en.wikipedia.org/wiki/Statistical_distance) metric and
-is sometimes called the *statistical distance*, *statistical difference*
-or *variational distance*.
-:::
+In [probability theory](https://en.wikipedia.org/wiki/Probability_theory), the **total variation distance** is a distance measure for probability distributions. It is an example of a [statistical distance](https://en.wikipedia.org/wiki/Statistical_distance) metric and is sometimes called the *statistical distance*, *statistical difference* or *variational distance*.
 
 **Definition**
 
-Consider a measurable space $(\Omega, \mathcal{F})$ and [probability
-measures](https://en.wikipedia.org/wiki/Probability_measure) $P$ and $Q$
+Consider a measurable space $(\Omega, \mathcal{F})$ and [probability measures](https://en.wikipedia.org/wiki/Probability_measure) $P$ and $Q$
 defined on $(\Omega, \mathcal{F})$. The total variation distance between
-$P$ and $Q$ is defined as
-$$\delta(P, Q) = \sup_{A \in \mathcal{F}} |P(A) - Q(A)|.$$ This is the
-largest absolute difference between the probabilities that the two
-[probability
-distributions](https://en.wikipedia.org/wiki/Probability_distribution)
-assign to the same event.
+$P$ and $Q$ is defined as $$\delta(P, Q) = \sup_{A \in \mathcal{F}} |P(A) - Q(A)|.$$ This is the largest absolute difference between the probabilities that the two
+[probability distributions](https://en.wikipedia.org/wiki/Probability_distribution) assign to the same event.
 
-![Total variation distance is half the absolute area between the two
-curves: Half the shaded area
-above.](tvd.png){#fig:total_variation_distance width="50%"}
+![Total variation distance is half the absolute area between the two curves: Half the shaded area above.](/MLDL/assets/img/tvd.png)
 
 In the following theorem, we formalize the above statement by showing an
 upper bound on the area under the ROC curve of an arbitrary detector in
@@ -464,31 +442,49 @@ by applying a threshold $\gamma$ on this number. By adjusting the
 parameter $\gamma$, we can tune the sensitivity of the detector to AI
 and human-generated texts to obtain an ROC curve.
 
-**Theorem 1.** *The area under the ROC of any detector $D$ is bounded
-as*
+**Theorem 1.** *The area under the ROC of any detector $D$ is bounded as*
+
 $$\text{ROC AUC}(D) \leq \frac{1}{2} + TV(\mathcal{M}, \mathcal{H}) - \frac{TV(\mathcal{M}, \mathcal{H})^2}{2}.$$
 
 **Proof.** The ROC is a plot between the true positive rate (TPR) and
 the false positive rate (FPR) which are defined as follows:
+
 $$\text{TPR}_\gamma = \mathbb{P}_{s \sim \mathcal{M}}[D(s) \geq \gamma]$$
+
 and
+
 $$\text{FPR}_\gamma = \mathbb{P}_{s \sim \mathcal{H}}[D(s) \geq \gamma],$$
+
 where $\gamma$ is some classifier parameter. We can bound the difference
 between the $\text{TPR}_\gamma$ and the $\text{FPR}_\gamma$ by the total
 variation between $\mathcal{M}$ and $\mathcal{H}$:
+
 $$|\text{TPR}_\gamma - \text{FPR}_\gamma| = \left| \mathbb{P}_{s \sim \mathcal{M}}[D(s) \geq \gamma] - \mathbb{P}_{s \sim \mathcal{H}}[D(s) \geq \gamma] \right| \leq TV(\mathcal{M}, \mathcal{H}) \tag{1}$$
+
 $$\text{TPR}_\gamma \leq \text{FPR}_\gamma + TV(\mathcal{M}, \mathcal{H}). \tag{2}$$
+
 Since the $\text{TPR}_\gamma$ is also bounded by 1 we have:
+
 $$\text{TPR}_\gamma \leq \min(\text{FPR}_\gamma + TV(\mathcal{M}, \mathcal{H}), 1). \tag{3}$$
-Denoting $\text{FPR}_\gamma$, $\text{TPR}_\gamma$, and
+
+Denoting $\text{FPR} _ \gamma$, $\text{TPR} _ \gamma$, and
+
 $TV(\mathcal{M}, \mathcal{H})$ with $x$, $y$, and $tv$ for brevity, we
 bound the ROC AUC as follows:
+
 $$\text{ROC AUC}(D) = \int_0^1 y \, dx \leq \int_0^1 \min(x + tv, 1) \, dx$$
+
 $$= \int_0^{1 - tv} (x + tv) \, dx + \int_{1 - tv}^1 dx$$
+
 $$= \left[ \frac{x^2}{2} + tv x \right]_{0}^{1 - tv} + \left[ x \right]_{1 - tv}^1$$
+
 $$= \frac{(1 - tv)^2}{2} + tv(1 - tv) + tv$$
+
 $$= \frac{1}{2} + \frac{tv^2}{2} + tv - tv + \frac{tv^2}{2}$$
-$$= \frac{1}{2} + tv - \frac{tv^2}{2}.$$ $\square$
+
+$$= \frac{1}{2} + tv - \frac{tv^2}{2}.$$ 
+
+$\square$
 
 For a detector to have a good performance (say, $ROC AUC \ge 0.9$), the
 distributions of human and AI-generated texts must be very different

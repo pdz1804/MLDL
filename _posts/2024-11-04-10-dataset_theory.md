@@ -1,3 +1,13 @@
+---
+layout: post
+title: 10. Dataset
+mathjax: true
+tags:
+- Basic Machine Learning
+categories: Basic_Machine_Learning
+description: Details information about the Dataset
+---
+
 ## Dataset
 
 ### Definition of a Dataset
@@ -8,14 +18,13 @@ where each column represents a specific variable, and each row
 corresponds to a particular record in the dataset. For instance, a
 dataset might list values for variables such as *height* and *weight*
 for each entry in the dataset. Datasets can also be collections of
-documents or files [@datasetdefinition].
+documents or files.
 
 In the field of open data, a *dataset* serves as the basic unit of
 information released in a public open data repository. For example, the
 European [data.europa.eu](https://data.europa.eu) portal aggregates more
-than a million datasets for public use [@opendata].
+than a million datasets for public use.
 
-::: cmt
 In statistics datasets often derive from real-world observations
 collected by sampling a *statistical population*. Each row typically
 represents the observations for one member of the population. Datasets
@@ -23,12 +32,9 @@ can also be generated algorithmically, often for testing and validating
 statistical software. Classical statistical software, like SPSS,
 presents data in a traditional dataset structure. To address missing or
 suspicious data, *imputation methods* may be applied to complete the
-dataset [@statisticsorigin].
-:::
+dataset.
 
-![Various plots of the multivariate data set Iris flower data set
-introduced by Ronald Fisher
-(1936).](img/iris-dataset.PNG){#fig:iris-dataset width="0.7\\linewidth"}
+![Various plots of the multivariate data set Iris flower data set introduced by Ronald Fisher (1936).](/MLDL/assets/img/img/iris-dataset.PNG)
 
 ### Properties of a Dataset
 
@@ -52,7 +58,7 @@ Several properties characterize a dataset's structure:
 
 -   **Missing Values**: Missing data, often indicated with specific
     symbols or codes, may be present and may require methods such as
-    imputation for handling them [@datasetproperties].
+    imputation for handling them.
 
 ### Classical Datasets in Statistical Literature
 
@@ -60,7 +66,7 @@ Several classical datasets are frequently referenced in statistical
 literature:
 
 -   **Iris Flower Dataset**: A multivariate dataset introduced by Ronald
-    Fisher (1936) [@irisflower], available from the University of
+    Fisher (1936), available from the University of
     California-Irvine Machine Learning Repository.
 
 -   **MNIST Database**: Consisting of images of handwritten digits,
@@ -68,20 +74,20 @@ literature:
 
 -   **Categorical Data Analysis Datasets**: Available through UCLA
     Advanced Research Computing, these datasets accompany the book, *An
-    Introduction to Categorical Data Analysis* [@categoricaldata].
+    Introduction to Categorical Data Analysis*.
 
 -   **Robust Statistics Datasets**: Used in *Robust Regression and
     Outlier Detection* by Rousseeuw and Leroy (1968), accessible via the
-    University of Cologne [@robuststatistics].
+    University of Cologne.
 
 -   **Time Series Data**: Datasets accompanying Chatfield's book, *The
-    Analysis of Time Series*, are hosted by StatLib [@timeseries].
+    Analysis of Time Series*, are hosted by StatLib.
 
 -   **Extreme Values**: Stuart Coles' book, *An Introduction to the
     Statistical Modeling of Extreme Values*, includes these datasets.
 
 -   **Bayesian Data Analysis**: Datasets for the book by Andrew Gelman
-    are archived and available online [@bayesian].
+    are archived and available online.
 
 -   **Bupa Liver Dataset**: Frequently referenced in machine learning
     literature.
@@ -91,28 +97,23 @@ literature:
 
 ### Imbalanced Datasets
 
-::: cmt
 An **imbalanced dataset** occurs when the classes in the dataset are not
 represented equally. In a binary classification problem, if one class
 significantly outnumbers the other, we refer to the majority class (more
 instances) and the minority class (fewer instances). Imbalanced datasets
 can lead to biased models that favor the majority class, thus
 compromising the model's ability to generalize.
-:::
 
 The following table provides generally accepted names and ranges for
 different degrees of imbalance:
 
-::: {#tab:imbalance}
-  **Percentage of data belonging to minority class**   **Degree of imbalance**
-  ---------------------------------------------------- -------------------------
-  --40% of the dataset                                 Mild
-  --20% of the dataset                                 Moderate
-  $<$`<!-- -->`{=html}1% of the dataset                Extreme
+| **Percentage of data belonging to minority class** | **Degree of imbalance** |
+|-----------------------------------------------------|--------------------------|
+| 40% of the dataset                                  | Mild                     |
+| 20% of the dataset                                  | Moderate                 |
+| 1% of the dataset                                   | Extreme                  |
 
-  : Degree of imbalance based on percentage of data belonging to the
-  minority class.
-:::
+Degree of imbalance based on percentage of data belonging to the minority class.
 
 For example, consider a dataset in an AI-generated text detection
 project where the minority class (human-written text) represents only

@@ -1,15 +1,23 @@
+---
+layout: post
+title: 18. Decision Tree
+mathjax: true
+tags:
+- Basic Machine Learning
+categories: Basic_Machine_Learning
+description: Details information about the Decision Tree
+---
+
 ## Decision Tree
 
 ### Overview
 
-::: cmt
 The Decision Tree algorithm is a supervised learning method capable of
 handling both *classification* and *regression* tasks. It works by
 learning decision rules inferred from the training data to predict the
 target variable's value or class. Starting from the root, the algorithm
 sorts records down the tree based on attribute comparisons until
 reaching a terminal node that represents the prediction.
-:::
 
 ### Types of Decision Trees
 
@@ -103,8 +111,7 @@ $\text{Entropy}(T)$ is the entropy of the dataset $T$. Information Gain
 is maximized when the attribute splits the data into the purest possible
 sub-groups, reducing overall entropy.
 
-![Information Gain.](img/info-gain.png){#fig:decision_tree_001
-width="1\\linewidth"}
+![Information Gain.](/MLDL/assets/img/img/info-gain.png)
 
 ### Gini Index
 
@@ -122,12 +129,10 @@ purity, meaning a more homogeneous subset.
 
 ### Comparison of Information Gain and Gini Index
 
-  **Metric**          **Information Gain**                             **Gini Index**
-  ------------------- ------------------------------------------------ ---------------------------------------------------
-  **Type of Split**   Works best with multiple splits                  Generally used for binary splits
-  **Calculation**     Based on entropy reduction                       Based on probability of misclassification
-  **Range**           Non-negative, varies by dataset                  Ranges from 0 to 0.5 for binary classification
-  **Preference**      Prefers attributes with many distinct values     Often simpler and computationally efficient
-  **Bias**            Biased towards attributes with more categories   Less biased towards highly categorical attributes
-
-  : Comparison between Information Gain and Gini Index in Decision Trees
+| **Metric**        | **Information Gain**                                  | **Gini Index**                                                 |
+|-------------------|-------------------------------------------------------|-----------------------------------------------------------------|
+| **Type of Split** | Works best with multiple splits                       | Generally used for binary splits                               |
+| **Calculation**   | Based on entropy reduction                            | Based on probability of misclassification                      |
+| **Range**         | Non-negative, varies by dataset                       | Ranges from 0 to 0.5 for binary classification                 |
+| **Preference**    | Prefers attributes with many distinct values          | Often simpler and computationally efficient                    |
+| **Bias**          | Biased towards attributes with more categories        | Less biased towards highly categorical attributes              |

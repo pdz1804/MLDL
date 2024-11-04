@@ -1,10 +1,20 @@
+---
+layout: post
+title: 13. Noise and Outlier
+mathjax: true
+tags:
+- Basic Machine Learning
+categories: Basic_Machine_Learning
+description: Details information about the Noise and Outlier concept
+---
+
 ## Noise and Outliers in Data Analysis
 
 ### Definitions
 
 ***Noise*** refers to any unwanted anomaly in the data that complicates
 the learning process and may make achieving zero error infeasible with a
-simple hypothesis class [@alpaydin2020]. Noise can arise in various
+simple hypothesis class. Noise can arise in various
 forms:
 
 -   **Input Noise**: Imprecision in recording input attributes can cause
@@ -23,15 +33,15 @@ making the learning process more challenging.
 ***Outliers***, on the other hand, are data points that significantly
 deviate from other observations. They may arise from data entry errors,
 experimental inaccuracies, or rare events, but they can also contain
-meaningful information about the underlying system [@hawkins1980].
+meaningful information about the underlying system.
 Outliers are often referred to as *abnormalities, discordants, deviants,
 or anomalies*.
 
-![Outlier](img/outlier-theory.PNG){#fig:outlier width="0.9\\linewidth"}
+![Outlier](/MLDL/assets/img/img/outlier-theory.PNG)
 
 Outliers are broader in scope compared to noise, as they include not
 only errors but also discordant data that may arise naturally from
-variations in the population or process [@salgado2020]. They are
+variations in the population or process. They are
 particularly valuable in fields such as fraud detection, intrusion
 detection, weather forecasting, and medical diagnosis, where identifying
 anomalies can lead to significant insights.
@@ -47,7 +57,6 @@ error is crucial before any corrective action is taken.
 
 #### Handling Noise
 
-${}$\
 Noise can be managed through various data preprocessing techniques to
 improve model performance:
 
@@ -69,11 +78,10 @@ improve model performance:
 
 #### Handling Outliers
 
-${}$\
 Outliers require careful handling to avoid removing valuable information
 or introducing bias:
 
-![Inter Quartile Range](img/IQR.PNG){#fig:iqr width="0.9\\linewidth"}
+![Inter Quartile Range](/MLDL/assets/img/img/IQR.PNG)
 
 -   **Statistical Methods**: Techniques such as Z-score, Interquartile
     Range (IQR), and modified Z-score help detect outliers based on
@@ -91,20 +99,16 @@ or introducing bias:
     especially in fields like medicine, can help decide whether to
     retain, modify, or remove an outlier.
 
-::: cmt
-Comment: The choice of method depends on the data type, size,
+**Comment**: The choice of method depends on the data type, size,
 distribution, and the need for interpretability, especially in
 high-stakes fields like healthcare.
-:::
 
 ### Comparison of Noise and Outliers
 
-  **Attribute**           **Noise**                                                                         **Outlier**
-  ----------------------- --------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------
-  **Definition**          Random or irrelevant data that obscures true patterns.                            Data points that significantly deviate from other observations, often called abnormalities or anomalies.
-  **Source**              Often due to measurement errors, environmental factors, or sensor inaccuracies.   Can result from data entry errors, rare events, or natural variations within the population.
-  **Impact on Model**     Generally reduces model accuracy by introducing random variability.               May affect model accuracy but can also represent meaningful insights or anomalies.
-  **Detection Methods**   Identified through signal processing, filtering, or data cleaning techniques.     Detected through statistical methods like Z-score, IQR, clustering, or regression analysis.
-  **Treatment**           Typically removed or smoothed to enhance model clarity.                           Can be removed, retained, or corrected depending on their cause and potential significance.
-
-  : Comparison of Noise and Outliers in Data Analysis
+| **Attribute**        | **Noise**                                                                         | **Outlier**                                                                                                     |
+|----------------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| **Definition**       | Random or irrelevant data that obscures true patterns.                            | Data points that significantly deviate from other observations, often called abnormalities or anomalies.         |
+| **Source**           | Often due to measurement errors, environmental factors, or sensor inaccuracies.   | Can result from data entry errors, rare events, or natural variations within the population.                     |
+| **Impact on Model**  | Generally reduces model accuracy by introducing random variability.               | May affect model accuracy but can also represent meaningful insights or anomalies.                               |
+| **Detection Methods**| Identified through signal processing, filtering, or data cleaning techniques.     | Detected through statistical methods like Z-score, IQR, clustering, or regression analysis.                      |
+| **Treatment**        | Typically removed or smoothed to enhance model clarity.                           | Can be removed, retained, or corrected depending on their cause and potential significance.                      |
