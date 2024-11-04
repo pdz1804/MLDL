@@ -1,13 +1,21 @@
+---
+layout: post
+title: 15. Sigmoid Function
+mathjax: true
+tags:
+- Basic Machine Learning
+categories: Basic_Machine_Learning
+description: Details information about the Sigmoid Function
+---
+
 ## Sigmoid functions
 
-::: cmt
 Sigmoid functions are the functions in mathematic that represent their
 shape as letter \"S\". Most important advantage of applying sigmoid
 functions in machine learning is that it is easy to get derivative which
 lead to reduce to time complexity when computing their derivative in
 learning process. We will go through three commonest sigmoid functions
 including logistic function, hyperbolic tangent, and arctangent.
-:::
 
 ### Logistic Function
 
@@ -172,7 +180,7 @@ $$\frac{d}{dx} \arctan(x) = \frac{1}{1 + x^2}$$ This derivative
 approaches zero as $x \to \pm \infty$, similar to other sigmoid-like
 functions, giving it a bell-shaped curve.
 
-### Applications {#applications .unnumbered}
+### Applications 
 
 **1. Machine Learning and Activation Functions**: Although less common
 than logistic and tanh functions, the arctangent function can serve as
@@ -197,7 +205,7 @@ images. The angle calculated via $\arctan$ provides orientation
 information, which is useful for identifying edges and shapes within an
 image.
 
-### Advantages and Limitations {#advantages-and-limitations .unnumbered}
+### Advantages and Limitations
 
 \- **Advantages**: With a range between $-\frac{\pi}{2}$ and
 $\frac{\pi}{2}$, the arctangent function is well-suited for applications

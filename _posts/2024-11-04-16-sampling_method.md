@@ -1,20 +1,26 @@
+---
+layout: post
+title: 16. Sampling Methods
+mathjax: true
+tags:
+- Basic Machine Learning
+categories: Basic_Machine_Learning
+description: Details information about the Sampling Methods
+---
+
 ## Sampling Methods in Machine Learning
 
 ### Sampling Methods
 
-::: cmt
 Sampling is a critical process in statistical analysis and machine
 learning, where a subset of a population or dataset is selected for
 analysis. Sampling can be broadly categorized into **probability
 sampling** and **non-probability sampling**. Sampling can also occur
 **with or without replacement**, an important distinction that defines
-whether a selected element can be chosen more than once in a single
-sample.
-:::
+whether a selected element can be chosen more than once in a single sample.
 
 #### Probability Sampling
 
-${}$\
 In probability sampling, each member of the population has a known,
 non-zero probability of being selected. This approach is often preferred
 for creating representative samples.
@@ -23,24 +29,20 @@ for creating representative samples.
     equal chance of selection. Can be conducted *with or without
     replacement*.
 
-    ![Systematic
-    Sampling](img/systematic-sampling.PNG){#fig:systematic-sampling
-    width="1\\linewidth"}
+    ![Systematic Sampling](/MLDL/assets/img/img/systematic-sampling.PNG)
 
 -   **Systematic Sampling**: Every $k$-th member is chosen from a list
     after a random starting point. This method is simple to implement
     but may introduce bias if the list has patterns.
 
-    ![Stratified Sampling](img/stra-sampling.PNG){#fig:stra-sampling
-    width="1\\linewidth"}
+    ![Stratified Sampling](/MLDL/assets/img/img/stra-sampling.PNG)
 
 -   **Stratified Sampling**: The population is divided into strata
     (e.g., age groups), and random samples are drawn from each stratum.
     Ensures representation across key subgroups but requires knowledge
     of population characteristics.
 
-    ![Cluster Sampling](img/clus-sampling.PNG){#fig:clus-sampling
-    width="1\\linewidth"}
+    ![Cluster Sampling](/MLDL/assets/img/img/clus-sampling.PNG)
 
 -   **Cluster Sampling**: The population is divided into clusters (e.g.,
     geographic regions), and entire clusters are randomly selected.
@@ -54,7 +56,6 @@ for creating representative samples.
 
 #### Non-Probability Sampling
 
-${}$\
 In non-probability sampling, some members of the population have zero
 chance of selection, often leading to bias.
 
@@ -73,13 +74,10 @@ chance of selection, often leading to bias.
     useful for hard-to-reach populations but may lead to bias if initial
     contacts are not representative.
 
-![Non-Probability
-Sampling](img/nonprop-sampling.PNG){#fig:nonprob-sampling
-width="1\\linewidth"}
+![Non-Probability Sampling](/MLDL/assets/img/img/nonprop-sampling.PNG)
 
 #### Sampling with and without Replacement
 
-${}$\
 Sampling methods can be performed either **with replacement** or
 **without replacement**:
 
@@ -92,15 +90,12 @@ Sampling methods can be performed either **with replacement** or
     sample. This approach ensures a diverse sample without repeated
     elements.
 
-![Sampling with and without
-Replacement](img/sampling-withwithout.PNG){#fig:sampling-withwithout
-width="1\\linewidth"}
+![Sampling with and without Replacement](/MLDL/assets/img/img/sampling-withwithout.PNG)
 
 ### Feature Randomization and Feature Flagging
 
 #### Feature Randomization
 
-${}$\
 Feature randomization is a technique often used in ensemble learning
 methods, particularly in decision tree-based models like Random Forests.
 In feature randomization, only a subset of features is selected randomly
@@ -127,7 +122,6 @@ without becoming too complex.
 
 #### Feature Flagging
 
-${}$\
 Feature flagging is a technique in software development used to control
 the release and availability of specific features. In machine learning,
 it can be used to:
