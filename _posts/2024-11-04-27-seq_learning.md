@@ -1,3 +1,14 @@
+---
+layout: post
+title: 27. Sequential Learning
+mathjax: true
+tags:
+- Advanced Machine Learning
+- Ensemble Methods
+categories: Advanced_Machine_Learning
+description: Details information about the Sequential Learning
+---
+
 ## Sequential Learning
 
 ### Concept of Sequential Learning and Sequential Models
@@ -29,7 +40,6 @@ retaining memory of prior inputs. Common models include:
 
 #### Recurrent Neural Networks (RNNs)
 
-${}$\
 RNNs process sequences with an internal memory mechanism.
 
 Types of RNN Architectures:
@@ -54,8 +64,7 @@ Types of RNN Architectures:
     frame-by-frame basis, the last many to many models can be utilized
     for video classification.
 
-![Process Sequences](img/proc-seq.PNG){#fig:proc-seq
-width="1\\linewidth"}
+![Process Sequences](/MLDL/assets/img/img/proc-seq.PNG)
 
 Traditional RNNs, as you may know, aren't very excellent at capturing
 long-range dependencies. This is primarily related to the problem of
@@ -63,15 +72,15 @@ vanishing gradients. Gradients or derivatives diminish exponentially as
 they move down the layers while training very deep networks. The problem
 is referred to as the ***Vanishing Gradient Problem***.
 
+
 #### Long Short-Term Memory Networks (LSTMs)
 
-${}$\
 LSTMs address RNNs' long-term dependency issues with *cell states* and
 *gates* (input, forget, and output) that regulate information flow. They
 are suitable for long-sequence applications like translation.
 
-![Process Sequences](img/rnn-vs-lstm.jpg){#fig:rnn-vs-lstm
-width="1\\linewidth"}
+![Process Sequences](/MLDL/assets/img/img/rnn-vs-lstm.jpg)
+
 
 **Basic Structure**
 
@@ -85,7 +94,9 @@ RNNs pass information from one time step to the next using a single
 hidden state, $h_t$, which retains information about the previous inputs
 in the sequence. However, this simple structure struggles with retaining
 long-term dependencies due to issues like the vanishing gradient
-problem.\
+problem.
+
+
 **Unfolding in Time**
 
 The RNN structure is \"unfolded\" across time, as shown by multiple
@@ -96,7 +107,9 @@ architecture for each time step.
 In both RNN and LSTM architectures, unfolding the network in time shows
 how the model processes sequences step-by-step. However, unlike basic
 RNNs, LSTMs have additional mechanisms to better retain long-term
-dependencies.\
+dependencies.
+
+
 **LSTM Internal Structure**
 
 The lower part of the image focuses on the LSTM cell's internal
@@ -108,7 +121,9 @@ allow it to retain important information for longer periods.
 The LSTM cell introduces a cell state (often represented as $C_t$),
 which runs horizontally across time steps. This cell state provides a
 way to retain information over long sequences, solving the vanishing
-gradient problem inherent in RNNs.\
+gradient problem inherent in RNNs.
+
+
 **Gates in LSTM**
 
 Each gate in the LSTM cell performs specific functions:
@@ -137,10 +152,9 @@ Each gate in the LSTM cell performs specific functions:
 
 These gates are implemented using sigmoid ($\sigma$) and tanh
 activations, allowing the network to learn which information to retain,
-update, or forget as it processes each time step.\
+update, or forget as it processes each time step.
 
-::: cmt
-Advantages of LSTM over RNN
+**Advantages of LSTM over RNN**
 
 -   **Memory Retention**: Due to the additional cell state and gating
     mechanisms, LSTMs can retain important information over long time
@@ -150,11 +164,9 @@ Advantages of LSTM over RNN
 -   **Mitigation of Vanishing Gradients**: By carefully regulating
     information flow, LSTMs address the vanishing gradient issue that
     limits the performance of standard RNNs on long sequences.
-:::
 
 #### Autoencoders
 
-${}$\
 One of the most active study areas in Natural Language Processing is
 machine translation (MT) (NLP). The goal is to create a computer program
 that can quickly and accurately translate a text from one language
@@ -182,7 +194,6 @@ applications.
 
 #### Sequence-to-Sequence (Seq2Seq)
 
-${}$\
 Seq2Seq models handle variable-length input and output sequences, making
 them essential for tasks like translation, summarization, and dialogue
 generation. They consist of an encoder to process the input and a

@@ -1,3 +1,14 @@
+---
+layout: post
+title: 29. Gradient Boosting
+mathjax: true
+tags:
+- Advanced Machine Learning
+- Ensemble Methods
+categories: Advanced_Machine_Learning
+description: Details information about the Gradient Boosting
+---
+
 ## Gradient Boosting
 
 ### Overview and History
@@ -8,7 +19,7 @@ typically decision trees, to minimize a specified loss function. This
 approach improves model accuracy by correcting the errors made by
 previous learners through an iterative process. Gradient Boosting was
 introduced by Jerome Friedman in 1999 and has become foundational for
-regression, classification, and ranking tasks [@friedman2001greedy].
+regression, classification, and ranking tasks.
 
 The concept of Gradient Boosting originated from the observation by Leo
 Breiman that boosting can be interpreted as an optimization algorithm on
@@ -30,7 +41,6 @@ overall accuracy.
 
 #### Regression
 
-${}$\
 In regression tasks, common loss functions include:
 
 -   **Mean Squared Error (MSE)**: This loss function is the average
@@ -38,30 +48,32 @@ In regression tasks, common loss functions include:
     widely used due to its sensitivity to large errors, making it
     effective for regression problems where large deviations are
     penalized.
+
     $$L(y, \hat{y}) = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
 -   **Mean Absolute Error (MAE)**: MAE measures the average absolute
     difference between the predicted and actual values. It is less
     sensitive to large outliers, making it suitable for tasks where
     robustness against extreme deviations is necessary.
+
     $$L(y, \hat{y}) = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|$$
 
 -   **Huber Loss**: Huber loss combines MSE and MAE and is less
     sensitive to outliers than MSE while retaining some sensitivity to
     large deviations. It transitions from MSE to MAE depending on the
-    residual size and is defined as: $$L(y, \hat{y}) =
+    residual size and is defined as: 
+
+    $$L(y, \hat{y}) =
         \begin{cases}
         \frac{1}{2}(y - \hat{y})^2 & \text{if } |y - \hat{y}| \leq \delta \\
         \delta |y - \hat{y}| - \frac{1}{2} \delta^2 & \text{otherwise}
-        \end{cases}$$
+    \end{cases}$$
 
 The choice of loss function can be based on the specific problem and its
 robustness to outliers.
 
-![Architecture of Gradient Boosting](img/gd-regression.PNG){#fig:gd-reg
-width="1\\linewidth"}
+![Architecture of Gradient Boosting](/MLDL/assets/img/img/gd-regression.PNG)
 
-::: cmt
 Description and Comments This figure provides a step-by-step
 illustration of the Gradient Boosting algorithm, where each tree is
 trained sequentially on the residuals (errors) of the previous tree,
@@ -80,7 +92,11 @@ depicted as follows:
     as $r_1$. Similarly, Tree 3 is trained on the residuals $r_2$ left
     by Tree 2, and this pattern continues through the $N$-th tree.
     Mathematically, the residuals $r_t$ for each tree $t$ are computed
-    as: $$r_t = r_{t-1} - \hat{r}_{t-1},$$ where $\hat{r}_{t-1}$
+    as: 
+    
+    $$r_t = r_{t-1} - \hat{r}_{t-1},$$ 
+    
+    where $\hat{r}_{t-1}$
     represents the prediction of the residuals by the $(t-1)$-th tree.
 
 -   **Error Reduction (Gradient Direction):** The goal of each tree in
@@ -95,16 +111,12 @@ depicted as follows:
     typically through a weighted sum, to make the final prediction,
     which is a refined and accurate approximation of the target variable
     $y$.
-:::
+
 
 #### Classification
 
-${}$\
+![Architecture of Gradient Boosting](/MLDL/assets/img/img/gd-archi.PNG)
 
-![Architecture of Gradient Boosting](img/gd-archi.PNG){#fig:gd-archi
-width="1\\linewidth"}
-
-::: cmt
 Description: The figure illustrates the process of building an ensemble
 model using Gradient Boosting with Decision Trees as weak classifiers.
 Each decision tree in the sequence is trained to fit the residuals
@@ -136,7 +148,6 @@ in the model's predictive accuracy.
 This process continues iteratively, with each new tree aiming to correct
 the mistakes of the preceding trees, thereby reducing the overall
 prediction error and improving the model's accuracy.
-:::
 
 In classification tasks, common loss functions include:
 
@@ -144,12 +155,15 @@ In classification tasks, common loss functions include:
     loss measures performance by penalizing predictions that are
     probabilistically far from actual class labels. It is especially
     common in binary classification tasks.
+
     $$L(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]$$
 
 -   **Multinomial Deviance**: Extending logistic loss to multiclass
     classification, multinomial deviance calculates error across
     multiple classes by penalizing probabilistic deviations.
+
     $$L(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \sum_{k=1}^{K} y_{i,k} \log(\hat{y}_{i,k})$$
+
     where $K$ is the number of classes, and $y_{i,k}$ is a binary
     indicator (0 or 1) indicating if class label $k$ is the correct
     classification for observation $i$.
@@ -184,10 +198,8 @@ iterations and the contribution of each learner. A smaller $\eta$ often
 requires more iterations but can lead to better generalization by
 reducing overfitting.
 
-![Generalized Additive Models](img/GAN.PNG){#fig:gan
-width="0.7\\linewidth"}
+![Generalized Additive Models](/MLDL/assets/img/img/GAN.PNG)
 
-::: cmt
 Description and Explanation: This figure compares the fits of different
 modeling approaches on a dataset with an independent variable $x$ and a
 target variable $y$. The models compared are as follows:
@@ -221,7 +233,6 @@ target variable $y$. The models compared are as follows:
     previous approaches. GAM is useful for capturing complex, non-linear
     relationships without making strong assumptions about the form of
     the relationship.
-:::
 
 ### Gradient Descent in Gradient Boosting
 
@@ -242,7 +253,10 @@ The process can be summarized as follows:
     errors from the prior model.
 
 4.  **Update the model** by scaling and adding the weak learner with a
-    learning rate $\eta$: $$F_{m}(x) = F_{m-1}(x) + \eta h_{m}(x)$$
+    learning rate $\eta$: 
+    
+    $$F_{m}(x) = F_{m-1}(x) + \eta h_{m}(x)$$
+
     where $F_{m}(x)$ is the updated model, $F_{m-1}(x)$ is the previous
     model, and $h_{m}(x)$ is the weak learner fitted to the residuals.
 
@@ -256,18 +270,23 @@ The process can be summarized as follows:
 -   **Algorithm:**
 
     1.  Initialize the model with a constant value:
+    
         $$F_0(x) = \arg \min_{\gamma} \sum_{i=1}^{n} L(y_i, \gamma).$$
 
     2.  For $m = 1$ to $M$:
 
         1.  Compute the pseudo-residuals:
+        
             $$r_{im} = -\left[ \frac{\partial L(y_i, F(x_i))}{\partial F(x_i)} \right]_{F(x) = F_{m-1}(x)} \quad \text{for } i = 1, \ldots, n.$$
+
 
         2.  Fit a weak learner $h_m(x)$ to the pseudo-residuals, using
             the training set $\{(x_i, r_{im})\}_{i=1}^{n}$.
 
         3.  Compute the multiplier $\gamma_m$ by solving:
+        
             $$\gamma_m = \arg \min_{\gamma} \sum_{i=1}^{n} L(y_i, F_{m-1}(x_i) + \gamma h_m(x_i)).$$
+
 
         4.  Update the model: $$F_m(x) = F_{m-1}(x) + \gamma_m h_m(x).$$
 
@@ -281,7 +300,6 @@ techniques include:
 
 #### Shrinkage
 
-${}$\
 Shrinkage, or learning rate regularization, modifies the update rule as:
 
 $$F_m(x) = F_{m-1}(x) + \nu \cdot \gamma_m h_m(x), \quad 0 < \nu \leq 1$$
@@ -291,25 +309,22 @@ $\nu < 0.1$) yield better generalization but require more iterations.
 
 #### Stochastic Gradient Boosting
 
-${}$\
 Stochastic Gradient Boosting is a variant of the standard Gradient
 Boosting algorithm introduced by Friedman. This modification is inspired
 by Breiman's bootstrap aggregation, or \"bagging,\" method.
-***Specifically, it proposes that at each iteration, a base learner is
-fit on a random subsample of the training data without replacement.***
-Friedman observed a substantial ***improvement in Gradient Boosting's
-accuracy with this modification.***
+***Specifically, it proposes that at each iteration, a base learner is fit on a random subsample of the training data without replacement.***
 
-The ***subsample size*** is represented by a ***constant fraction $f$ of
-the total training set size***. When $f = 1$, the algorithm operates
-deterministically and is identical to the standard Gradient Boosting
+Friedman observed a substantial ***improvement in Gradient Boosting's accuracy with this modification.***
+
+The ***subsample size*** is represented by a ***constant fraction $f$ of the total training set size***. 
+When $f = 1$, the algorithm operates deterministically and is identical to the standard Gradient Boosting
 algorithm. However, smaller values of $f$ introduce randomness, which
 helps prevent overfitting and acts as a regularization technique.
 Additionally, the algorithm becomes faster, as each iteration uses a
-smaller dataset to fit the regression trees. Typically, ***a subsample
-fraction $0.5 \leq f \leq 0.8$ provides good results for small to
-moderate-sized training sets***. Setting $f = 0.5$ means that half of
-the training data is used to build each base learner.
+smaller dataset to fit the regression trees. 
+
+Typically, ***a subsample fraction $0.5 \leq f \leq 0.8$ provides good results for small to moderate-sized training sets***. 
+Setting $f = 0.5$ means that half of the training data is used to build each base learner.
 
 Like bagging, subsampling in Stochastic Gradient Boosting allows for the
 definition of an *out-of-bag error*, which estimates the prediction
@@ -320,22 +335,18 @@ performance improvements and the optimal number of iterations.
 
 #### Number of Observations in Leaves
 
-${}$\
-Gradient Tree Boosting implementations often include ***regularization
-by limiting the minimum number of observations in the terminal nodes
-(leaves) of trees***. This constraint prevents splits that would result
-in nodes containing fewer than the specified minimum number of samples,
+Gradient Tree Boosting implementations often include 
+***regularization by limiting the minimum number of observations in the terminal nodes (leaves) of trees***. 
+This constraint prevents splits that would result in nodes containing fewer than the specified minimum number of samples,
 thereby helping to reduce variance in predictions at leaves. By setting
 this limit, the model can achieve more stable and generalizable
 predictions.
 
 #### Complexity Penalty
 
-${}$\
-Another regularization technique in Gradient Boosting is to penalize
-model complexity. For Gradient Boosted Trees, ***model complexity can be
-defined in terms of the proportional number of leaves in the trees***. A
-complexity penalty optimizes both the loss and the model's structural
+Another regularization technique in Gradient Boosting is to penalize model complexity. 
+For Gradient Boosted Trees, ***model complexity can be defined in terms of the proportional number of leaves in the trees***. 
+A complexity penalty optimizes both the loss and the model's structural
 complexity, which corresponds to a post-pruning approach where branches
 that fail to reduce the loss by a threshold are removed.
 
@@ -359,13 +370,12 @@ complexity of the combined models.
 
 ### Comparison between AdaBoost and Gradient Boosting
 
-  **AdaBoost**                                                                                                                                                   **Gradient Boosting**
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------
-  During each iteration in AdaBoost, the weights of incorrectly classified samples are increased, so that the next weak learner focuses more on these samples.   Gradient Boosting updates the weights by computing the negative gradient of the loss function with respect to the predicted output.
-  AdaBoost uses simple decision trees with one split known as the decision stumps of weak learners.                                                              Gradient Boosting can use a wide range of base learners, such as decision trees and linear models.
-  AdaBoost is more susceptible to noise and outliers in the data, as it assigns high weights to misclassified samples.                                           Gradient Boosting is generally more robust, as it updates the weights based on the gradients, which are less sensitive to outliers.
+| **AdaBoost**                                                                                                                                                 | **Gradient Boosting**                                                                                                             |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| During each iteration in AdaBoost, the weights of incorrectly classified samples are increased, so that the next weak learner focuses more on these samples. | Gradient Boosting updates the weights by computing the negative gradient of the loss function with respect to the predicted output. |
+| AdaBoost uses simple decision trees with one split known as the decision stumps of weak learners.                                                            | Gradient Boosting can use a wide range of base learners, such as decision trees and linear models.                                |
+| AdaBoost is more susceptible to noise and outliers in the data, as it assigns high weights to misclassified samples.                                         | Gradient Boosting is generally more robust, as it updates the weights based on the gradients, which are less sensitive to outliers. |
 
-  : Difference between AdaBoost and Gradient Boosting
 
 ### Variants of Gradient Boosting
 
@@ -375,7 +385,6 @@ computational efficiency:
 
 #### LightGBM
 
-${}$\
 LightGBM (Light Gradient Boosting Machine) is a high-performance
 gradient boosting framework developed by Microsoft, optimized for speed
 and efficiency on large-scale datasets. Unlike traditional gradient
@@ -406,7 +415,6 @@ modeling, ranking problems, and real-time prediction systems.
 
 #### CatBoost
 
-${}$\
 CatBoost is an open-source gradient boosting library developed by
 Yandex, initially released in July 2017. Unlike traditional gradient
 boosting frameworks, CatBoost is specifically designed to handle
@@ -438,7 +446,6 @@ and receiving awards like InfoWorld's \"Best Machine Learning Tools\" in
 
 #### XGBoost
 
-${}$\
 XGBoost (eXtreme Gradient Boosting) is an open-source gradient boosting
 library initially released in March 2014. Developed by Tianqi Chen and
 maintained by the Distributed (Deep) Machine Learning Community (DMLC),
