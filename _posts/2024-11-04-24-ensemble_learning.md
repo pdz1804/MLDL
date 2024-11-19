@@ -3,8 +3,8 @@ layout: post
 title: 24. Ensemble Learning
 mathjax: true
 tags:
-- Advanced Machine Learning
-- Ensemble Methods
+- Advanced_Machine_Learning
+- Ensemble_Methods
 categories: Advanced_Machine_Learning
 description: Details information about the Ensemble Learning
 ---

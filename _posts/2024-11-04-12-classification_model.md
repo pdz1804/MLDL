@@ -3,7 +3,7 @@ layout: post
 title: 12. Classification Model
 mathjax: true
 tags:
-- Basic Machine Learning
+- Basic_Machine_Learning
 categories: Basic_Machine_Learning
 description: Details information about the Classification Model
 ---
