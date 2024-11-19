@@ -3,8 +3,8 @@ layout: post
 title: 07. Gradient Descent for Multi-Variable Functions
 mathjax: true
 tags:
-- Basic Math
-- Linear Algebra
+- Basic_Math
+- Linear_Algebra
 categories: Basic_Math_and_Linear_Algebra
 description: Details information about the Gradient Descent for Multi-Variable Functions
 ---

@@ -3,7 +3,7 @@ layout: post
 title: 18. Decision Tree
 mathjax: true
 tags:
-- Basic Machine Learning
+- Basic_Machine_Learning
 categories: Basic_Machine_Learning
 description: Details information about the Decision Tree
 ---

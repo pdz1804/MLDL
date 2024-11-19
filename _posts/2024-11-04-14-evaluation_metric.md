@@ -3,7 +3,7 @@ layout: post
 title: 14. Evaluation Metrics
 mathjax: true
 tags:
-- Basic Machine Learning
+- Basic_Machine_Learning
 categories: Basic_Machine_Learning
 description: Details information about the Evaluation Metrics
 ---

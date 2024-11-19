@@ -3,8 +3,8 @@ layout: post
 title: 04. Data Dimension Greater than the Number of Data Points
 mathjax: true
 tags:
-- Basic Math
-- Linear Algebra
+- Basic_Math
+- Linear_Algebra
 categories: Basic_Math_and_Linear_Algebra
 description: Details information about the Data Dimension Greater than the Number of Data Points
 ---

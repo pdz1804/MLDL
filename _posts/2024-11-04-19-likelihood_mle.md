@@ -3,8 +3,8 @@ layout: post
 title: 19. Likelihood Function and Maximum Likelihood Estimation
 mathjax: true
 tags:
-- Advanced Machine Learning
-- Basic Math and Linear Algebra
+- Advanced_Machine_Learning
+- Basic_Math_and_Linear_Algebra
 categories: Advanced_Machine_Learning
 description: Details information about the Likelihood Function and Maximum Likelihood Estimation
 ---
