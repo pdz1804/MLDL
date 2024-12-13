@@ -77,9 +77,3 @@ For more details, refer to: [Setting up your GitHub Pages site locally with Jeky
 
 [MIT](/LICENSE)
 
-## Donations
-
-A donation link for Alipay is provided, just in case anyone wants to contribute.
-
-![Alipay QR Code for Donations](http://p1.bpimg.com/567571/9a4a158daee8aa69.png)
-
